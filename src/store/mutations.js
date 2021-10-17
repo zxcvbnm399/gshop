@@ -11,7 +11,7 @@ import {
     INCREMENT_FOOD_COUNT,
     DECREMENT_FOOD_COUNT,
     CLEAR_CART,
-    RECEIVE_SEARCH_SHOPS
+    RECEIVE_SEARCH_SHOPS,
 } from './mutation-types'
 import Vue from 'vue'
 import state from './state'
@@ -84,5 +84,5 @@ export default {
     //搜索得到的商家列表
     [RECEIVE_SEARCH_SHOPS](state,{searchShops}) {
         state.searchShops = searchShops
-    }
+    },
 }

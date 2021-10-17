@@ -11,6 +11,7 @@ export default function ajax (url, data={}, type='GET') {
     if (type === 'GET') {
       // 准备url query参数数据
       let dataStr = '' //数据拼接字符串
+      // Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组
       Object.keys(data).forEach(key => {
         dataStr += key + '=' + data[key] + '&'
       })
