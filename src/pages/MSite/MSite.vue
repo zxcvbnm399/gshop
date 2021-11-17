@@ -273,16 +273,25 @@ export default {
         // 在遍历之前，判断数组是否存在
         if(categorys instanceof Array){
           categorys.forEach(c => {
-          // 如果当前小数组满了，再创建一个新的小数组
-          if (minArr.length === 8) {
-            minArr = []
-          }
-          // 如果minArr是空的，就将小数组保存到大数组中
-          if (minArr.length === 0) {
-            arr.push(minArr)
-          }
-          // 将当前分类放到小数组中
-          minArr.push(c)
+            minArr.push(c)
+
+            if(minArr.length === 8){
+              arr.push(minArr)
+              minArr = []
+            }
+
+            // 下面的逻辑也能用，但是理解不了，上面是自己写的逻辑
+
+          // // 如果当前小数组满了，再创建一个新的小数组
+          // if (minArr.length === 8) {
+          //   minArr = []
+          // }
+          // // 如果minArr是空的，就将小数组保存到大数组中
+          // if (minArr.length === 0) {
+          //   arr.push(minArr)
+          // }
+          // // 将当前分类放到小数组中
+          // minArr.push(c)
         })
           }
           
@@ -291,7 +300,7 @@ export default {
     },
   watch:{
     // 其中参数value可有可无
-    categorys(value){//监听等到categorys数组中有数据了，在异步更新界面前执行
+    categorys(value){//监听等到categorys数组中有数据了，在异步更新界面后执行
       // 界面更新立即创建Swiper对象
       this.$nextTick(() =>{
     // $nextTick方法作用，就是当页面上元素被重新渲染之后，才会执行回调函数中的代码
@@ -359,6 +368,7 @@ export default {
               .header_login_text
                 color #fff
           .msite_nav
+            touch-action none
             bottom-border-1px(#e4e4e4)
             margin-top 45px
             height 200px
