@@ -73,8 +73,8 @@ export default {
       code:'', //短信验证码
       computeTime:0,  //倒计时
       showPwd:false, //是否显示密码
-      name:'', //手机/邮箱/用户
-      pwd:'', //密码
+      name:'admin', //手机/邮箱/用户
+      pwd:'123456', //密码
       captcha:'', //图形验证码
       alertText:'', //提示框提示文本
       alterShow:false,// 是否显示提示框

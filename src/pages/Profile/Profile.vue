@@ -129,17 +129,32 @@ export default {
   },
   methods:{
     logout(){
-      MessageBox.confirm('确定退出吗？').then(
-        action => {
-          // 请求退出
+      // MessageBox.confirm('确定退出吗？').then(
+      //   action => {
+      //     // 请求退出
+      //     this.$store.dispatch('logout')
+      //     Toast('退出成功')
+      //   },
+      //   // 取消退出
+      //   action => {
+      //     console.log('点击了取消')
+      //   }
+      // )
+// 或者
+      MessageBox({
+  title: '提示',
+  message: '确定执行此操作?',
+  showCancelButton: true
+}).then( (res) => {
+  if (res === 'confirm') {
+          //点击确定
           this.$store.dispatch('logout')
           Toast('退出成功')
-        },
-        // 取消退出
-        action => {
+        } else {
+          //点击取消
           console.log('点击了取消')
         }
-      )
+})
     }
   },
   computed:{
